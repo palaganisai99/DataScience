@@ -1,0 +1,34 @@
+<body style="background-color:burlywood;">
+<h1>Git & GitHub</h1>
+<h2>Git</h2>
+<p>Git is a version control system that helps us to manage the project versions, organize the application in the remote repository (of which one of them is <b>GitHub</b>) also allows developers to collaborate on the projects.</p>
+<h2>GitHub</h2>    
+<p>GitHub is a hosting service for storing the data on remote repository.Before diving deeper into Git and Github commands, lets focus on the fundamentals of Git and GitHub pointed below.<p></p><br>
+ <ol><li>Working Directory</li>
+    <li>Staging Area</li>
+    <li>Local repository</li>
+    <li>Remote repository</li></ol></p>
+
+1. <b>Working Directory:</b> The Directoy in which the project exists and you are currently working in.<br>
+2. <b>Staging Area:</b> A file in the directory that stores the information on what goes in next commit.<br>
+3. <b>Local Repository:</b> The folder or store in our local machine where the application and its related are stored.<br>
+4. <b>Remote Repository:</b> The hosting service over the internet (<b>GitHub</b>) where the changes are pushed into after the commit.
+<br><br><br>
+<center><img src = "architecture.png" width="500" height="300"></center><br>
+<center><figcaption><i>Fig.1 - Git Architecture</i></figcaption></center>
+<br><br><br>
+<p>From Fig.1, we can the git add command is used to add the modified files to the staging area which upon commit will make the
+    changes into the Local repository using git commit and then push them into remote repository using git push command. git pull will pull the
+    data into local repository where as git fetch just retrives the changes without making changes to the local respository. Once the changes
+    pushed into remote repository are confirmed, pull request is raised for review and further review and confirmation of changes the request
+    is merged.
+</p>
+
+<p><b>Branch:</b> Branch is just a copy of the master environment. For example say we have 10 developers working on 10 different features
+of a same project and in order to not have high load on the master data different branches are created and assigned one per developer.</p>
+
+<p><b>Merging Conflicts:</b> Suppose say two developers are working on a project and developer1 completed the task and pushed the changes,
+ raised and merged the request, upon completion developer2 also completed the task and pushed it to the remote repository, now he wants
+to merge the request, upon merging it will raise merge conflict since the master file has been modified after he pulled it, so developer2
+ have to move to the master branch, pull the repository and then go back to his dev2 branch and then merge the origin/master and make 
+the changes whether by accepting both changes or either one or none, and then again add it to the satging area and then commit and push.</p>
