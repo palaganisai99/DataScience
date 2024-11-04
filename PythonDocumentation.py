@@ -94,4 +94,23 @@ Dictionaries -
 3. my_dict.keys() will give me a list of all keys ['key1','key2','key3','key4']
    my_dict.values() will produce a list of all values of my_dict ['NEW VALUE', 'Sammy', [0,1,2],123.4]
    my_dict.items() will give me a list of tuples of my_dict [('key1','NEW VALUE'),('key2','Sammy'),('key3',[0,1,2]),('key4',123.4)]
+
+Tuples - 
+1. Tuples ordered sequence of immutable data objects, which means the data objects cannot be reassigned.
+   For example, (1,2,3,4), (1,'hello',123.456)
+2. For example, my_tup = ('a','a','b');
+                my_tup.count('a') will result as 2
+                my_tup.index('a') will result 0, it will produce the index of first occurence.
+
+Sets - 
+1. Sets are unordered collection of unique data objects. 
+   For example set{'a','b','c','b','a'} will produce {'a','b','c'}
+2. .add('a') will append the data object to the set.
+
+Booleans - 
+Booleans are just logical values to convey True or False of statements. True and False both are case-sensitive.
+
+
+Python Comparison Operators - 
+
 '''
