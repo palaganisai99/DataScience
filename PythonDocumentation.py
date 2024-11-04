@@ -80,4 +80,18 @@ Lists -
                 sorted_list = my_list.sort()
                 print(sorted_list); will result in None
                 print(my_list); will result in ['a','x','c'] which is unsorted.
+
+Dictionaries - 
+1. Dictionaries are unordered sequence of key value pairs. We can retreive yje value using the resepective key.
+   For example, my_dict = {'key1':'Sam','key2':'Sammy','key3':[0,1,2]}
+   my_dict['key1'] will result in 'Sam';
+   my_dict['key3'][1] will result in 1;
+2. Adding an element to dictionary. For example my_dict = {'key1':'Sam','key2':'Sammy','key3':[0,1,2]};
+   my_dict['key4'] = 123.4;
+   print(my_dict) will result in {'key1':'Sam','key2':'Sammy','key3':[0,1,2],'key4':123.4}
+   my_dict['key1'] = 'NEW VALUE';
+   print(my_dict) will result in {'key1':'NEW VALUE','key2':'Sammy','key3':[0,1,2],'key4':123.4}
+3. my_dict.keys() will give me a list of all keys ['key1','key2','key3','key4']
+   my_dict.values() will produce a list of all values of my_dict ['NEW VALUE', 'Sammy', [0,1,2],123.4]
+   my_dict.items() will give me a list of tuples of my_dict [('key1','NEW VALUE'),('key2','Sammy'),('key3',[0,1,2]),('key4',123.4)]
 '''
