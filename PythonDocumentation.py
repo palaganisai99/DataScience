@@ -112,5 +112,25 @@ Booleans are just logical values to convey True or False of statements. True and
 
 
 Python Comparison Operators - 
+The comparison operators are similar to the mathematical operators for comparison.
 
+1. == returns True if both values are equal.
+2. != returns True if both values are not equal.
+3. > returns True if value on LHS is greater than value on RHS
+4. < returns True if value on LHS is lesser than value on RHS
+5. >= returns True if value on LHS is greater than or equal to the value on RHS
+6. <= returns True if value on LHS is lesser than or eual to the value on RHS
+
+Logical Operators - 
+Logical Operators are used to define the truthfulness of statements using and, or and not keywords.
+
+1. and - 
+   The and operated returns True only if all the statements are True.
+   For example, (1==1) and (2==2) return True; (1==2) and ('sam'=='sam') returns False
+2. or - 
+   The or operator returns True even if one of the statements is True.
+   For example, (1==2) or ('sam'=='sam') returns True; (1>2) or (5<4) returns False
+3. not - 
+   The not operator is used to reverse the logical value.
+   For example not(True) returns False; not(3>4) returns True
 '''
