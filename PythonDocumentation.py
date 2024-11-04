@@ -44,4 +44,40 @@ Strings -
 6. len() function is used to know the length of the data object. 
 7. Reversing a string using slicing - [::-1].
 8. String are immutable. For example say my_name = "Sam" and my_name[0] = "P" results in an error, but can be acheived using concatenation and variable reassignment.
+
+String Interpolation - 
+We have two methods .format() and f-string literals method to use strings with in the print function or concatenation.
+
+1. .format() method - 
+   For example, print("A {} {} {}.".format("quick","brown","fox")) will result in "A quick brown fox."
+                print("A {1} {0} {2}.".format("brown","quick","fox")) will result in "A quick brown fox."
+                print("A {2} {2} {2}.".format("brown","quick","fox")) will result in " A fox fox fox."
+                print("A {q} {b} {f}.".format(b="brown",q="quick",f"fox")) will result "A quick brown fox."
+         
+2. f-string literal -
+   For example, my_name = "Sammy"; 
+                print(f'My name is {my_name}') will result in "My name is Sammy"
+   Secondly, We can make use of f-strings for rounding the number as well.
+   For example, my_price = 123.82314576819
+                print(f'My price is {my_price:.2f}') will result in "My price is 123.82" 
+
+Lists - 
+1. Lists are ordered sequence of data objects of different types and they are mutable.
+2. Lists also support indexing and slicing.
+   my_list = [1,"hello",[1,2,3], 12.345]
+   len(my_list) will return 4 for the number of data objects in it.
+3. Lists can be concatenated but it is not inplace which means say,
+   For example, my_list = [1,2,3]; another_list = [4,5]
+   my_list + another_list will result in [1,2,3,4,5] but does not change my_list and another_list but if you want it to overwrite my_list
+   my_list = my_list + another_list will result in my_list = [1,2,3,4,5] and another_list stays same.
+4. .append() will add the respective data object at the end of the list.
+   For example my_list = [1,2,3]
+               my_list.append(4) will result in [1,2,3,4]
+5. .pop() by default removes the last object from the list, but giving an index removes particular object from the list.
+   For example, my_list - [1,2,3]; my_list.pop() will remove 3 from the list.
+6. .sort() can be used to sort the objects in the list but it is not inplace which means say,
+   For example, my_list = ['a','x','c'];
+                sorted_list = my_list.sort()
+                print(sorted_list); will result in None
+                print(my_list); will result in ['a','x','c'] which is unsorted.
 '''
