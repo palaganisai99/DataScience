@@ -133,4 +133,83 @@ Logical Operators are used to define the truthfulness of statements using and, o
 3. not - 
    The not operator is used to reverse the logical value.
    For example not(True) returns False; not(3>4) returns True
+
+
+Python Statements -
+
+Control Flow Statements(if-elif-else):
+Control flow statements are used to execute a piece of code when some conditions are met.
+For example, my_name = 'Sammy'
+             if my_name == 'Sammy':
+               print("Hello, Sammy")
+             elif my_name == 'Frankie':
+               print("Hello, Frankie")
+             else:
+               print("What is your name?")
+The above example prints "Hello, Sammy" if the value in my_name variable is 'Sammy' and 'Hello, Frankie' if its 'Frankie' else it will say 'What is your name?'.
+
+For loops - 
+For loops are used iterate a particular piece of code over the data objects like every character in a string. every elements in the list etc.
+
+1. my_list = [1,2,3,4,5]
+   for num in my_list:
+      print(num) # will result in 1 2 3 4 5
+2. print even number in my_list
+   for num in my_list:
+      if num%2 ==0:
+         print(num) # will result in 2 4
+3. my_list = [(1,2),(2,3),(3,4)]
+   for (a,b) in my_list:
+      print(a) # will result in 1 2 3
+4. my_dict = {'k1':1,'k2':2,'k3':3}
+   for key,value in my_dict.items():
+      print(value) # will result in 1 2 3
+   for i in d:
+      print(i) # will result in k1, k2, k3 (by default it prints keys)
+   for key,value in my_dict.items():
+      print(key) # will result in k1, k2, k3
+
+While Loops -
+While Loops execute a piece of code until the consition is False.
+For example my_num = 0
+            while my_num < 5:
+               my_num += 1
+               print(my_num) # will result 1 2 3 4 5
+            else:
+               print('my_num is not less than 5.')
+
+We have 3 keyword that will be helpful in loops (Works with both for and while loops):
+1. pass - which does nothing
+   For example, i = 0
+                while i < 5: 
+
+   if we run the above code will result in an error, instead we can pass it to avoid the error doing nothing
+                i = 0
+                while i < 5:
+                  pass
+2. continue - It will go to the top of nearest enclosing loop.
+   For example, my_name = 'Sammy'
+                for i in my_name:
+                  if i == 'a'
+                  continue # will result S m m y
+   So here the loop when the character is equal to a will not go futher in the loop and goes to start of the loop to iterate with next character.
+3. break - It will break the nearest enclosing loop.
+   For example, my_name = 'Sammy'
+                for i in my_name:
+                  if i == 'a':
+                     break
+                  print(i) # will result in S
+   So here when the i is equal to a then the loops break and comes out also not iterating the other characters further.
+
+List Comprehensions -
+List comprehensions are best for creating lists using for loops along with append function.
+For example, 1. my_list = [x for x in range(0,6)]
+                my_list # will result in [0,1,2,3,4,5]
+             2. my_list = [x**2 for x in range(0,6) if x%2==0]
+                my_list # will result in [0,4,8]
+             3. my_list = [x**2 if x%2 == 0 else 'ODD' for x in range(0,6)]
+                my_list # will result in [0,'ODD',4,'ODD',8,'ODD']
+             4. my_list = [x*y for x in range(0,2) for y in range(0,2)]
+                my_list # will result [0,0,0,1]
+   
 '''
