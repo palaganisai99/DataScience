@@ -211,5 +211,70 @@ For example, 1. my_list = [x for x in range(0,6)]
                 my_list # will result in [0,'ODD',4,'ODD',8,'ODD']
              4. my_list = [x*y for x in range(0,2) for y in range(0,2)]
                 my_list # will result [0,0,0,1]
-   
+
+
+Functions -
+Functions are helpful in creating a code of block to be reusable without rewriting the code again and again. The syntax of function is as follows:
+
+def name_of_function():
+   #code
+
+name_of_function() # just calling the function by its name will execute the function.
+
+We mostly use the return keyword to get the output of the function as it helps us to assign the output to a variable, where as a print does not allow it.
+
+def num_add(a,b):
+   return a+b
+
+mysum = num_add(2,3) # will store the result in variable
+
+num_add(5) # will result in an error stating that missing 1 required positional argument(b), So it is must to have all the argument values when you call a function or can have
+a default value at the time of defining a function.
+For example, def num_add(b, a=2): # parameter with default value should be mentioned after the parameters without default
+               return a+b
+
+             num_add(3) # will result in 5 as we already a=2 set as default, if it was not set then it would result in error.
+
+*args and **kwargs - 
+Lets discuss about *args and **kwargs using an example,
+
+def num_add(a,b):
+   return a,b 
+
+It will return the sum of parameters and what if we want to have the sum of arbitary number of arguments, else we have to define the parameters in the function with defaults or we
+can make use *args
+
+def num_add(*args):
+   return sum(args)
+
+num_add(2,3,10,22) # will result in 37
+num_add(2,5) # will result in 7
+
+The **kwargs are helpful if we want to define arbitary number of keyword arguments, they will stored in form a dictionary. For example,
+
+def myfunc(*args, **kwargs):
+   return f"I would like to have {args[0]} {kwargs['food']}."
+
+myfunc(10,20,30,fruit='apple'.food='eggs') # will result in "I would like to have 10 eggs." 
+
+Map & Filter -
+Lets understand about map and filter functions using an example,
+
+def square(n):
+   return n**2
+
+Syntax of map function map(function,list of values to be mapped to), It maps the function to every object in the list, iterates over like a for loop
+mylist = [1,2,3]
+list(map(square,mylist)) #will return [1,4,9]
+
+Syntax of filer function filter(function, list of values to be mapped to), It returns only the values that are True other will be filtered out
+
+def evenodd(n):
+   if n%2 == 0:
+      return n
+   else:
+      pass
+
+mylist = [1,2,3]
+list(filter(evenodd, mylist)) # will return [2]
 '''
