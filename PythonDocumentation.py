@@ -278,3 +278,46 @@ def evenodd(n):
 mylist = [1,2,3]
 list(filter(evenodd, mylist)) # will return [2]
 '''
+def board():
+    startend_margin =  "|---------|---------|---------|"
+    gridline2 = "|         |         |         |"
+    gridline3 = gridline2
+    gridline4 = gridline2
+    gridline6 = gridline2
+    gridline7 = gridline2
+    gridline8 = gridline2
+    gridline10 = gridline2
+    gridline11 = gridline2
+    gridline12 = gridline2
+    print(startend_margin)
+    print(gridline2)
+    print(gridline3)
+    print(gridline4)
+    print(startend_margin)
+    print(gridline6)
+    print(gridline7)
+    print(gridline8)
+    print(startend_margin)
+    print(gridline10)
+    print(gridline11)
+    print(gridline12)
+    print(startend_margin)
+
+
+def tic_tac_toe():
+    print("Welcome to TIC TAC TOE")
+    P1 = input("Player1, Enter your name:").capitalize()
+    P2 = input("Player2, Enter your name:").capitalize()
+    board()
+    while True:
+       card1 = input(f"{P1}, choose your card X or O: ").upper()
+       card2=""
+       if card1.upper() == 'X':
+           card2 = 'O'
+       elif card1.upper() == 'O':
+           card2 = 'X'
+           break
+       else:
+           continue
+        
+print(tic_tac_toe())
