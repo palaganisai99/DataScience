@@ -277,4 +277,38 @@ def evenodd(n):
 
 mylist = [1,2,3]
 list(filter(evenodd, mylist)) # will return [2]
+
+Object Oriented Programming - 
+
+Object Oriented Programming is used to create our own objects and its methods and function in python. Sometimes functions are also not ideal enough for repeatable tasks,
+so we can make use of OOPs to create them. 
+
+The OOPs is an object that takes in the information like parameters of the object and will return the results or changes the current objects make use of methods of class.
+
+Syntax of creating a object - 
+
+class NameOfClass():
+
+   def __init__(self,param1,param2):
+      self.param1 = param1
+      self.param2 = param2
+
+   def mymethod(self):
+      print("Hello")
+
+We make use of class keyword to create a class followed by its name and a colon. Then we define a __init__ function which is called constructor of the class, it creates the class
+instance and self keyword is used to make the parameters used in the class to not be global variables but the parameters assigned within the object class, and every function followed
+will have self as its first parameter to avoid using global variables and letting the object know that it is using the parameters of its own class.
+
+Lets understand the class by an example:
+
+class Dog():
+
+   def __init__(self,name, breed, spots):
+      self.name = name
+      self.breed = breed
+      self.spots = spots
+
+So, we created a dog class using class keyboard then the first method in every class would be __init__ which is called a constructor class to initialize the instance. The self keyword
+is a reference to the instance of that class. The parameters name, breed and spots are then assigned to the instance attributes using self.attribute syntax.
 '''
