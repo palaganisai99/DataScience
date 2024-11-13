@@ -304,11 +304,43 @@ Lets understand the class by an example:
 
 class Dog():
 
-   def __init__(self,name, breed, spots):
+   species = 'mammal'
+
+   def __init__(self,name, breed):
       self.name = name
       self.breed = breed
-      self.spots = spots
+
+   def bark(self,number):
+      print("My name is {} and the number is {}.".format(self.name,number))   
 
 So, we created a dog class using class keyboard then the first method in every class would be __init__ which is called a constructor class to initialize the instance. The self keyword
-is a reference to the instance of that class. The parameters name, breed and spots are then assigned to the instance attributes using self.attribute syntax.
+is a reference to the instance of that class. The parameters name, breed are then assigned to the instance attributes using self.attribute syntax.
+
+We can assign something as below:
+
+my_dog = Dog(name='Sammy',breed = 'Lab')
+my_dog.breed() # will result in 'Lab'
+
+1. some attributes are defined before the __ini__ method and are called class object attributes and those attributes will remain same across the class in all instances.
+2. Attributes are just the characteristics of the objects where as the methods are functions that take in the object itself and perform the actions.
+
+In the above example, bark is a method which takes self and number as its arguments, self is used to reference the instance of the class and number is the argument that can be explicitly
+given to bark method which cannot be used in other methods.
+
+Now, lets define class for circle
+
+class Circle():
+
+   def __init__(self, radius = 1):
+
+      self.radius = radius
+      self.area = radius * radius * Circle.pi
+
+   def circumference():
+
+      return self.radius * 2 * self.pi
+
+1. In the above example, in the __init__ method we have given radius = 1 as an argument, so even if the argument is not given during the object call it still takes 1 as default value.
+2. self.area is defined with formula produced by the attributes and class object attribute, which means the attributes can be defined from other attributes as well.
+3. Class object attribute can be called us self.attribute or class_name.attribute.
 '''
