@@ -343,4 +343,34 @@ class Circle():
 1. In the above example, in the __init__ method we have given radius = 1 as an argument, so even if the argument is not given during the object call it still takes 1 as default value.
 2. self.area is defined with formula produced by the attributes and class object attribute, which means the attributes can be defined from other attributes as well.
 3. Class object attribute can be called us self.attribute or class_name.attribute.
+
+Inheritance - 
+
+We can make use of classes already defined in our new classes. Lets understand this with an example.
+
+class Animal():
+
+   def __init__(self):
+      print("Animal Created")
+   
+   def who_am_i(self):
+      print("I am an animal")
+   
+   def eat(self):
+      print("I am eating")
+
+
+class Dog(Animal): # the base class will be given within the parantheses
+
+   def __init__(self):
+      Animal.__init__(self) # To initialize the base class animal in the derived class dog
+      print("Dog Created")
+
+   def who_am_i(self):
+      print("I am a dog") # this will over write the who_am_i method derived from the base class
+
+my_dog = Dog()
+
+my_dog.who_am_i() # will print "I am a dog", if the function is not wriiten in derived class it would result in "I am an animal"
+
 '''
