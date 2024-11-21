@@ -17,9 +17,9 @@
       </head>
       <body>
         <pre><code class="python">
-            pip install numpy # to install NumPy library
+            >>> pip install numpy # to install NumPy library
 
-            import numpy as np # After installing the library has to imported to the instance for use.
+            >>> import numpy as np # After installing the library has to imported to the instance for use.
         </code></pre>
       </body>
 
@@ -32,5 +32,97 @@
       2. The size of the numpy array cannot be changed once the array is created.<br>
       3. The shape should be rectangular, which means every row in the array should have the same number of columns.
     </p>
+    <h3>Array Fundamentals</h3>
 
-    
+    <p> One way to initialize the array is using a python list</p>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+      <pre><code class="python">
+        >>> a = np.array([1, 2, 3, 4, 5])
+        >>> a
+
+        array([1, 2, 3, 4, 5])
+      </code></pre>
+    </body>
+
+    <p>Most of the methods are alomost similar to lists. The individual element of an array can be accessed same as list.</p>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+      <pre><code class="python">
+        >>> a[0]
+
+        1
+      </code></pre>
+    </body>
+
+    <p>Like the lists arrays are mutable.</p>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+      <pre><code class="python">
+        >>> a[0] = 10
+        >>> a
+
+        array([10, 2, 3, 4, 5])
+      </code></pre>
+    </body>
+
+    <p>Also, like list group of elemets can be accessed using slicing</p>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+      <pre><code class="python">
+        >>> a[:3]
+
+        array([10, 2, 3])
+      </code></pre>
+    </body>
+    <p> A two dimensional array can be creatd using nested python sequences.</p>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+      <pre><code class="python">
+        >>> b = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+        >>> b
+
+        array([[1, 2, 3, 4]
+               [5, 6, 7, 8]
+               [9, 10, 11, 12]])
+    </code></pre>
+    </body>
+    <p>And the element can be accessed using square brackets similar to multiple lists</p>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+      <pre><code class="python">
+        >>> b[1][3]
+
+        8
+      </code></pre>
+    </body>
