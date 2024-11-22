@@ -126,3 +126,85 @@
         8
       </code></pre>
     </body>
+    <h3>Array Attributes</h3>
+    <p> Lets have a look at most used attributes with arrays shape, ndim, size and dtype<br><br>
+       1. ndim returns the number of dimensions of an array.<br>
+       2. shape return the tuple of number of elements in every dimension.<br>
+       3. size return the number of elements in an array.<br>
+       4. dtype gives the data type of array based on the elements within.<br>
+    </p>
+  </code></pre>
+</body>
+<p>And the element can be accessed using square brackets similar to multiple lists</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> b.ndim
+    2
+
+    >>> b.shape
+    (3,4)
+
+    >>> len(b.shape) == b.ndim
+    True
+
+    >>> b.size
+    12
+
+    >>> import math
+    >>> math.prod(b.shape) == b.size
+    True
+
+    >>> b.dtype
+    dtype('int64') # int for integer and 64 for 64-bit
+
+  </code></pre>
+</body>
+<h3>How to create basic arrays</h3>
+<p>Using numpy built-in methods such as np.ones(), np.zeros, np.empty(), np.arange() and np.linspace() we can build basic arrays.</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    # returns an array filled with 0's with required or given shape
+    >>> np.zeros(2)
+    array([0., 0.])
+
+    >>> np.zeros(2,2)
+    array([[0., 0.],
+           [0., o.]])
+
+    # returns an array filled with 1's with required or given shape
+    >>> np.ones(2)
+    array([1., 1.])
+
+    # np.empty() does not return an empty array instead it fills in with random numbers
+    >>> np.empty(3)
+    array([3.4, 41., 10.9])
+
+    # np.linspace() returns the array linearly spaced within the range provided
+    >>> np.linspace(0, 10, num=5)
+    array([0, 2.5, 5.0, 7.5, 10.0])
+
+    # np.arange() return the array of specified range with default step size of 1
+    >>> np.arange(1,5)
+    array([1., 2., 3., 4.])
+
+    >>> np.arange(1,5,2)
+    array([1., 3.])
+
+    # If we want to create an array of particular data type
+    >>> np.arange(1,5, dtype = 'int64')
+    array([1, 2, 3, 4])
+
+  </code></pre>
+</body>
