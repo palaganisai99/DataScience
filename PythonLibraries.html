@@ -208,3 +208,175 @@
 
   </code></pre>
 </body>
+<h3>Adding, removing and sorting elements</h3>
+<p>For removing elements we can just select the elements required using indexing. The element addition can be done using np.concatenate</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([1, 2, 3, 4])
+    >>> b = np.array([5, 6, 7, 8])
+    >>> np.concatenate((x,y))
+    array([1, 2, 3, 4, 5, 6, 7, 8])
+
+    >>> x = np.array([[1, 2],
+                      [3, 4]])
+    >>> y = np.array([5, 6])
+    >>> np.concatenate((x, y), axis=0)
+    array([[1, 2],
+            [3, 4],
+            [5, 6]])
+
+    # sorting elements in an array
+    
+    >>> arr = np.array([2, 1, 5, 3, 7, 4, 6, 8])
+    >>> np.sort(arr)
+    array([1, 2, 3, 4, 5, 6, 7, 8])
+  </code></pre>
+</body>
+<h3>Array Reshaping</h3>
+<p>The reshaping is used to change the shape of an array but the size of an array should be same.</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([1, 2, 3, 4])
+    >>> np.reshape(a, shape=(2,2))
+    array([[1, 2],
+           [3, 4]])
+  </code></pre>
+</body>
+<h3>How to convert a 1D array into a 2D array</h3>
+<p>We can use np.newaxis and np.expand_dims to convert a 1D array into a 2D array. When we use np.newaxis a 1D array becomes a 2D, and a 2D becomes 3D array, where as the 
+  np.expand_dims expands the dimension in the required axis.
+</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([1, 2, 3, 4])
+    >>> a2 = a[np.newaxis, : ]
+    >>> print(a.shape)
+    >>> print(a2.shape)
+    (4, )
+    (1, 4)
+  </code></pre>
+</body>
+<p>We can use np.newaxis to convert a 1D array into a row vector or column vector</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([1, 2, 3, 4])
+    >>> a2 = a[np.newaxis, : ] # creates a row vector
+    >>> a3 = a[:, np.newaxis] # created a column vector
+    >>> print(a.shape)
+    >>> print(a2.shape)
+    >>> print(a3.shape)
+    (4, )
+    (1, 4)
+    (4, 1)
+  </code></pre>
+</body>
+<p>np.expand_dims can be used to expand the dimension across the axis required.</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([1, 2, 3, 4])
+    >>> a4 = np.expand_dims(a, axis=0)
+    >>> print(a4)
+    >>> print(a4.shape)
+
+    [[1 2 3 4]]
+    (1, 4)
+
+    >>> a5 = np.expand_dims(a, axis=1)
+    >>> print(a5)
+    >>> print(a5.shape)
+
+    [[1]
+     [2]
+     [3]
+     [4]]
+    (4, 1)
+  </code></pre>
+</body>
+<h3>Indexing and Slicing</h3>
+<p>Indexing and slicing is used to gather certain elements or group of elements from an array.</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+    >>> a[0][0]
+    1
+
+    >>> a[1][:2]
+    [5, 6]
+  </code></pre>
+</body>
+<p>The visual below gives you a great understanding of slicing & indexing</p>
+<center><img src = "Images\np_indexing.png" width="500" height="300"></center><br>
+<center><figcaption><i>Fig.1 - Indexing and Slicing</i></figcaption></center>
+
+<p>We can select elemets in an array based on conditions and can use <b>&</b> and <b>|</b> to use multi conditions. Suppose wants to return only elements less than 5</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+    >>> a2 = a[a < 5]
+    >>> print(a2)
+    [1, 2, 3, 4]
+
+    >>> print(a[(a<5) & (a>1)]) # and operator
+    [2, 3, 4]
+  </code></pre>
+</body>
+<p>We can also use np.nonzero to selet the elements required from an array</p>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+    >>> a2 = np.nonzero(a < 5)
+    (array([0, 0, 0, 0], dtype=int64), array([0, 1, 2, 3], dtype=int64)) # first array gives the row indices and second array returns the column indicies, where the condition is satisifed else returns empty array
+
+    # If we want to return the elements instead of indicies
+    >>> print(a[a2])
+    [1, 2, 3, 4]
+  </code></pre>
+</body>
