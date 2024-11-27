@@ -380,3 +380,359 @@
     [1, 2, 3, 4]
   </code></pre>
 </body>
+<h3>Array creation from existing data</h3>
+
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+    >>> a2 = a[0, :]
+    [1, 2, 3, 4]
+
+    >>> b = [[1, 1], [2, 2]]
+    >>> c = [[3, 3], [4, 4]]
+    >>> d = np.hstack((b, c))
+    array([[1, 1, 3, 3],
+           [2, 2, 4, 4]])
+
+    >>> e = np.vstack((b, c))
+    array([[1, 1],
+           [2, 2],
+           [3, 3],
+           [4, 4]])
+
+    >>> f,g = np.hsplit(a, 2)
+    >>> print(f)
+    array([[1, 2],
+           [5, 6],
+           [9, 10]])
+    
+    >>> print(g)
+    array([[3, 4],
+           [7, 8],
+           [11, 12]])
+
+    # We can also use copy and view to create array from existing data, whereas copy does not refer the original array and do not change only changing the copy whereas view refers original array.
+    
+    >>> b = a[0, :]
+    [1, 2, 3, 4]
+
+    >>> b[0] = 100
+    >>> print(b)
+    >>> print(a)
+    [100, 2, 3, 4]
+    array([[100, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+
+    >>> copy1 = np.copy(a)
+  </code></pre>
+</body>
+<h3>Basic Array Operations</h3>
+<head>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <pre><code class="python">
+    >>> a = np.array([1, 2])
+    >>> b = np.ones(2, dtype = int)
+    >>> a + b
+    array([2, 3])
+
+    # In the similar way we can perfrom subtraction, multiplication and division
+
+    >>> a - b
+    array([0, 1])
+
+    >>> a * b
+    array([1, 2])
+
+    >>> a / b
+    array([1, 2])
+
+    # The sum of the elements in an array can be returned using sum methods
+    
+    >>> arr = np.array([[1, 1], [2, 2]])
+    >>> arr.sum()
+    6
+
+    >>> arr.max()
+    2
+
+    >>> arr.min()
+    1
+
+    # you can return the sum of elements row wise and column wise operation making use of axis
+
+    >>> arr.sum(axis=0)
+    array([3, 3])
+
+    >>> arr.sum(axis=1)
+    array([2, 4])
+
+  </code></pre>
+
+  <h3>Broadcasting</h3>
+  <p>Broadcasting technique is when operations is carried out between arrays of two different sizes. The shape of the arrays should be compatible which means one should be multiple of the other else throws a valuerror.
+  </p> In the code snippet below, the shape of a is (1, 2) and the shape of b is (1, 4). So the addition operation will be carried out for the first two elemets of b with a, and repeats the same with next two elememts.
+  <head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+  <pre><code class="python">
+    >>> a = np.array([1, 2])
+    >>> b = np.array([1, 2, 3, 4])
+    >>> a + b
+    array([2, 4, 4, 6])  
+  </code></pre>
+  <h3>Creating Matrices</h3>
+  <p>In order to create a matrix we can make use of python list o lists, we can make use indexing and slicing to manipulate the arrays.</p>
+  <head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+  <pre><code class="python">
+    >>> data = np.array([[1, 2], [3, 4], [5, 6]])
+    >>> data
+    array([[1, 2],
+            [3, 4],
+            [5, 6]])
+
+    >>> data[1]
+    array([3, 4])
+
+    >>> data[:, 1]
+    array([2, 4, 6])
+  </code></pre>
+    <p>In the similar way we aggregated the vectors, we can aggregate matrices and can make use of axis parameter to make row or column based operations</p>
+    <head>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+    <pre><code class="python">
+      >>> data = np.array([[1, 2], [3, 4], [5, 6]])
+      >>> data.max()
+      6
+
+      >>> data.min()
+      1
+
+      >>> data.sum()
+      21
+
+      >>> data = np.array([[1, 2],[5, 3],[4, 6]])
+      >>> data
+      array([[1, 2],
+              [5, 3],
+              [4, 6]])
+        
+      >>> data.max(axis=0)
+      array([5, 6])
+
+      >>> data.min(axis=1)
+      array([2, 5, 6])
+    </code></pre>
+      <h3>Generating Random Numbers</h3>
+      <p>We can generate random numbers using np.random.default_rng()</p>
+      <head>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+      </head>
+      <body>
+      <pre><code class="python">
+        >>> rng = np.random.default_rng()
+        >>> rng.random(3)  #rng.random() generates decimal numbers
+        array([0.63691823, 0.79183832, 0.91293912])
+
+        >>> rng.integers(5, size=(2, 4)) #rng.integers() generates integers
+        array([[3, 2, 1, 0],
+              [0, 4, 2, 3]])
+
+        >>> rng.integers(5, size=(2,4), endpoint=True)   # to include the higher number as well
+        array([[0, 5, 2, 1],
+               [1, 4, 2, 5]])
+      </code></pre>
+        <h3>How to get unique items and counts</h3>
+        <p>We can make use of np.unique() to get the unique elements in an array.</p>
+        <head>
+          <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+          <script>hljs.initHighlightingOnLoad();</script>
+        </head>
+        <body>
+        <pre><code class="python">
+          >>> a = np.array([1, 2, 5, 6, 3, 5, 2, 5, 8, 5, 0, 1, 4, 6])
+          >>> unique_values = np.unique(a)
+          >>> print(unique_values)
+          [0 1 2 3 4 5 6 8]
+
+          # We can get indices using return_index=True and count using return_count=True
+          >>> unique_values, unq_indices, value_counts = np.unique(a, return_index=True, return_count=True)
+          >>> print(unq_indicies)
+          [10  0  1  4 12  2  3  8]
+            
+          >>> print(value_counts)
+          [1 2 2 1 1 4 2 1]
+        </code></pre>
+          <br>
+          <p>The same can be done with any higher dimensional matrix as well.For example lets take 2D array</p>
+          <head>
+            <link rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
+          </head>
+          <body>
+          <pre><code class="python">
+            >>> a = np.array([[1, 2, 3, 4],
+                              [5, 6, 7, 8],
+                              [9, 10, 11, 12],
+                              [1, 2, 3, 4])
+
+            >>> print(np.unique(a)) # the array will be flattened if the axis is not provided
+            [1 2 3 4 5 6 7 8 9 10 11 12]
+
+            >>> print(np.unique(a, axis=0))
+            [[1 2 3 4],
+              [5 6 7 8],
+              [9 10 11 12]]
+
+            >>> unique_rows, indices, occurrence_count = np.unique(a_2d, axis=0, return_counts=True, return_index=True)
+            >>> print(unique_rows)
+            [[1 2 3 4],
+             [5 6 7 8],
+             [9 10 11 12]]
+
+            >>> print(indices)
+            [0 1 2]
+
+            >>> print(occurrence_count)
+            [2 1 1]
+          </code></pre>
+  <h3>Transposing and reshaping a matrix</h3>
+  <p>In machine learning solution we may need the data to be in a different shape than we have, so we can usinf arr.reshape(), arr.T(), arr.transpose()</p>
+  <head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+  <pre><code class="python">
+    >>> data = np.array([1, 2, 3, 4, 5, 6])
+    >>> reshaped_data = data.reshape((2, 3))
+    array([[1, 2, 3],
+           [4, 5, 6]])
+
+    >>> reshaped_date1 = data.reshape((3, 2))
+    array([[1, 2],
+           [3, 4],
+           [5, 6]])
+    
+    >>> data = np.array([[0, 1, 2],
+                         [3, 4, 5]])       
+    >>> transpose_data = data.transpose()
+    array([[0, 3],
+           [1, 4],
+           [2, 5]])
+
+    # We can also use arr.T() for transpose, resulting the same
+    >>> transpose_data = data.T()
+    array([[0, 3],
+           [1, 4],
+           [2, 5]])
+  </code></pre>
+  <h3>Reversing an array</h3>
+  <p>We can use np.flip() to reverse an array.</p>
+  <head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+  <pre><code class="python">
+    #Reversing a 1D array
+    >>> data = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+    >>> print(np.flip(data))
+    array([8, 7, 6, 5, 4, 3, 2, 1])
+
+    #Reversing a 2D array
+    >>> data = np.array([[1, 2, 3],
+                         [4, 5, 6]])
+    >>> print(np.flip(data))
+    array([[6, 5, 4],
+           [3, 2, 1]])
+
+    #Reversing the array only on respective axis, axis=0 for rows and axis=1 for columns
+    >>> print(np.flip(data, axis=0))
+    array([[4, 5, 6],
+           [1, 2, 3]])
+
+    >>> print(np.flip(data, axis =1))
+    array([[3, 2, 1],
+           [6, 5, 4]])
+
+    # We can reverse the elements at particular index as well
+    >>> data[1] = np.flip(data[1])
+    >>> print(data)
+    array([[1, 2, 3],
+           [6, 5, 4]])
+  </code></pre>
+  <h3>Reshaping and flattening multidimensional arrays</h3>
+  <p>We can use .flatten() or .ravel() to flatten a multi-dimensional arrays. The main difference between both are ravel refers to the original array and thus do not create a copy of the array so any changes made to the array will affect the original array also.</p>
+  <head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+  <pre><code class="python">
+    >>> x = np.array([[1, 2, 3, 4],
+                      [5, 6, 7, 8],
+                      [9, 10, 11, 12]])
+              
+    >>> print(x.flatten())
+    array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+
+    >>> x1 = x.flatten()
+    >>> x1[0] = 100
+    >>> print(x)
+    array([[1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12]])
+    
+    >>> print(x1)
+    array([100, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+
+
+    >>> x2 = x.ravel()
+    >>> x2[0] = 100
+    >>> print(x)
+    array([[100, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12]])
+    
+    >>> print(x2)
+    array([100, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+  </code></pre>
+
